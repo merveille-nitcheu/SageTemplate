@@ -11,3 +11,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.style-class
+{
+  height: 45px;
+  background-color: #f3f4f6;
+  font-size: small;
+  box-shadow:  0px 2px 5px #f3f4f6;
+}
+.p-panel .p-panel-header
+{
+  height: 45px;
+  font-size: x-large;
+  justify-content: center;
+  background-color: #f2faff;
+  border: none;
+  margin-top: 10px;
+  font-weight: 100;
+  padding-block: 15px;
+
+}
+.buton{
+  margin-left: 15px;
+  height:35px;
+  font-size: small; 
+  
+}
+.p-inputtext{
+  font-size: small;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item{
+  font-size: small;
+}
+.p-datatable-wrapper{
+  font-size: small;
+}
+.p-fieldset .p-fieldset-legend{
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+
+}
+.p-fieldset-legend > span{
+  font-weight: lighter;
+  font-size: small;
+}
+.input-style{
+width: 290px;
+height: 35px;
+margin-block: 5px;
+}
+
+.input-style:disabled{
+  background-color: #f3f4f6;
+  }
+
+.p-fieldset .p-fieldset-content{
+  padding: 0;
+}
+
+.p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text{
+  font-size: small;
+}
+.p-card .p-card-content{
+  padding: 10px;
+}
+.p-card .p-card-body{
+  padding: 0px;
+}
+

@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, {ReactNode} from 'react'
 import MenuBar from './MenuBar';
-import Modal from './Modal';
 
-export default function LandingPage() {
-    const [visible, setVisible] = useState<boolean>(false);
+interface LayoutProps{
+    children: ReactNode;
+
+}
+export default function LandingPage({ children}: LayoutProps) {
+
   return (
     <>
-         <MenuBar setVisible={setVisible}/>
-         <Modal visible={visible} setVisible={setVisible}/>
-
+      <MenuBar  />
+     <main>
+      {children}
+      </main> 
     </>
-  )
+  );
 }

@@ -1,12 +1,13 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React from 'react'
 import { Menubar } from 'primereact/menubar';
 import { MenuItem } from 'primereact/menuitem';
+import { useNavigate } from 'react-router-dom';
 
-interface VisibilityProps {
-    setVisible: Dispatch<SetStateAction<boolean>>;
-  }
 
-export default function MenuBar(props: VisibilityProps) {
+
+export default function MenuBar() {
+
+    const navigate = useNavigate()
     
 
     const items: MenuItem[] = [
@@ -39,7 +40,7 @@ export default function MenuBar(props: VisibilityProps) {
                 },
                 {
                     label: 'Journaux de saisie',
-                    command: () => props.setVisible(true)
+                    command: () => navigate('/journaux')
                 },
 
 
@@ -59,7 +60,7 @@ export default function MenuBar(props: VisibilityProps) {
     ];
     return (
         <div>
-            <Menubar model={items} />
+            <Menubar model={items} className='style-class'/>
         </div>
     )
 }
