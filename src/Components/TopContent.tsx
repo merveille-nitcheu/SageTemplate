@@ -84,14 +84,27 @@ export default function TopContent() {
                 <Divider layout="vertical" />
                 
                 
-            <Card >
-                <div style={{borderBottom:'1px ',display:'flex',width: '100%'}}>
-                <span  >Ancien:  </span>
-                <span  >Jour:  </span>
-                <span  >Jour:  </span>
+            <Card style={{width:'80%',fontSize:'small'}}>
+                <div style={{display:'flex'}}>
+                <span style={{width:'40%'}} >Ancien solde  </span>
+                <span style={{width:'40%'}} >300 000  </span>
+                <span  style={{width:'40%'}}> 500 000   </span>
           
                 </div>
                 <Divider layout="horizontal" />
+                <div style={{display:'flex'}}>
+                <span style={{width:'40%'}} >Totaux journal  </span>
+                <span style={{width:'40%'}} >300 000  </span>
+                <span  style={{width:'40%'}}>200 000   </span>
+          
+                </div>
+                <Divider layout="horizontal" />
+                <div style={{display:'flex'}}>
+                <span style={{width:'40%'}} >Nouveau solde  </span>
+                <span style={{width:'40%'}} >300 000  </span>
+                <span  style={{width:'40%'}}>200 000   </span>
+          
+                </div>
                
             </Card>
        
