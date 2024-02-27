@@ -1,18 +1,14 @@
-import React, {ReactNode} from 'react'
-import MenuBar from './MenuBar';
+import React, { ReactNode } from "react";
+import MenuBar from "./MenuBar";
 
-interface LayoutProps{
-    children: ReactNode;
-
+interface LayoutProps {
+  children: ReactNode;
 }
-export default function LandingPage({ children}: LayoutProps) {
-
+export default function LandingPage({ children }: LayoutProps) {
   return (
     <>
-      <MenuBar  />
-     <main>
-      {children}
-      </main> 
+      <MenuBar />
+      <main>{children}</main>
     </>
   );
 }

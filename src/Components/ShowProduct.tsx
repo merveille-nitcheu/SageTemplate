@@ -1,15 +1,17 @@
+
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import LandingPage from "./LandingPage";
 import { useNavigate, useParams } from "react-router-dom";
 import { Toolbar } from "primereact/toolbar";
-import { DataTable } from "primereact/datatable";
+import { DataTable, DataTableFilterMeta  } from "primereact/datatable";
+import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
 import { Column } from "primereact/column";
 import { Panel } from "primereact/panel";
 import { Fieldset } from "primereact/fieldset";
 import { Button } from "primereact/button";
-import AddProduct from "./AddProduct";
-import TopContent from "./TopContent";
+import { FilterMatchMode } from "primereact/api";
 import { SplitButton } from "primereact/splitbutton";
+import TopContentShow from "./TopContentShow";
 
 interface Product {
   jour?: string;
@@ -33,8 +35,18 @@ interface VisibilityProps {
   setSelectedProduct?: Dispatch<SetStateAction<Product>>;
   selectedProduct?: Product;
 }
+interface Type {
+    name?: string;
+    code: number | null;
+  }
 
-export default function EditProduct() {
+  const type: Type[] = [
+    { name: "Toutes les ecritures", code: null },
+    { name: "Ecritures lettrées", code: 1 },
+    { name: "Ecritures non lettrées", code: 2 },
+  ];
+
+export default function ShowProduct() {
 
   const produit: Product[] = [
     {
@@ -125,37 +137,21 @@ export default function EditProduct() {
   const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState<Product>({});
+  const [selectedType, setSelectedType] = useState<Type | null>(null);
   const [products, setProducts] = useState<Product[]>(produit);
   const [selectedProduct, setSelectedProduct] = useState<Product>();
   const [ShowProduct, setShowProduct] = useState<Product[]>();
   const items = [
     {
-      label: "Analytique",
+      label: "Voir les registres associés",
+    },
+    {
+      label: "Visualiser la piece",
+    },
+    {
+      label: "Visionner les documents rattachés",
+    },
 
-    },
-    {
-      label: "Registre",
-    },
-    {
-      label: "Visualisation piece",
-    },
-    {
-      label: "Informations libres",
-    },
-    {
-      label: "Lettrage",
-      disabled:!!selectedProduct
-    },
-    {
-      label: "Interrogations genérales",
-    },
-    {
-      label: "Interrogations tiers",
-      disabled:!!selectedProduct
-    },
-    {
-      label: "Documents attachés",
-    },
   ];
   
   
@@ -167,6 +163,19 @@ export default function EditProduct() {
     }
   }, [products]);
 
+  const [filters, setFilters] = useState<DataTableFilterMeta>({
+    type: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  });
+  const onGlobalFilterChange = (e: DropdownChangeEvent) => {
+    const { code } = e.target.value;
+    let _filters = { ...filters };
+    // @ts-ignore
+    _filters["type"].value = code;
+
+    setFilters(_filters);
+    setSelectedType(e.value);
+  };
+
   const leftToolbarTemplate = () => {
     return (
       <div className="flex flex-wrap gap-5">
@@ -176,47 +185,46 @@ export default function EditProduct() {
           model={items}
           size="small"
           className="buton"
-          disabled={!selectedProduct}
           style={{ backgroundColor: "#3b82f6" }}
         />
-        <Button
+        {/* <Button
           label="Ouvrir"
           className="buton p-button-help"
           disabled={!selectedProduct}
           style={{ backgroundColor: "#3b82f6", border: "none" }}
-          onClick = {() => navigate(`/editproduct/${selectedProduct?.type}`)}
-        />
+        /> */}
+
+<Dropdown
+        value={selectedType}
+        onChange={(e: DropdownChangeEvent) => onGlobalFilterChange(e)}
+        options={type}
+        optionLabel="name"
+        className="buton w-full md:w-14rem"
+        placeholder="Selectionner les ecritures"
+        style={{ marginRight: "20px" }}
+      />
+    
       </div>
     );
   };
 
-  /* const onRowSelect = (event: any) => {
+  const onRowSelect = (event: any) => {
     const selectedProduct = event.data;
 
     navigate(`/editproduct/${selectedProduct.type}`);
-  }; */
+  };
 
   return (
     <LandingPage>
       <Panel header="Saisie de journaux">
-        <Fieldset style={{ paddingBlock: "10px", paddingTop: "25px" ,marginTop:'-20px'}} >
-          <TopContent selectedProduct={selectedProduct}/>
-        </Fieldset>
-        <Fieldset legend="Ajouter" style={{ marginBlock: "10px" }}>
-          <AddProduct
-            product={product}
-            setProduct={setProduct}
-            products={products}
-            setProducts={setProducts}
-            selectedProduct={selectedProduct}
-            setSelectedProduct={setSelectedProduct}
-          />
+        <Fieldset legend={"Journal: " + ShowProduct?.[0]?.reference}>
+          <TopContentShow selectedProduct={selectedProduct}/>
         </Fieldset>
 
         <Fieldset legend="Liste">
           <Toolbar
-            style={{ padding: "0px", height: "50px" ,background: "transparent",
-            border: "none"}}
+             style={{ padding: "0px", height: "50px" ,background: "transparent",
+             border: "none",marginBottom:'10px'}}
             left={leftToolbarTemplate}
           />
           <DataTable
@@ -226,13 +234,18 @@ export default function EditProduct() {
             onSelectionChange={(e) => setSelectedProduct(e.value)}
             paginator
             rows={5}
+            onRowSelect={onRowSelect}
+            filters={filters}
+            globalFilterFields={["type"]}
+            emptyMessage="Pas de Produits disponibles."
             tableStyle={{
               minWidth: "50rem",
               fontSize: "small",
               marginBlock: "-10px",
             }}
-            scrollable scrollHeight="400px"
           >
+            <Column field="reference" header="Code"></Column>
+            <Column field="reference" header="Date"></Column>
             <Column field="reference" header="Jour"></Column>
             <Column field="reference" header="N°piece"></Column>
             <Column field="reference" header="N°facture"></Column>
