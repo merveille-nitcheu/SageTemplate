@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import LandingPage from "./LandingPage";
+import LandingPage from "../Pages/LandingPage";
 import { useNavigate, useParams } from "react-router-dom";
 import { Toolbar } from "primereact/toolbar";
 import { DataTable } from "primereact/datatable";
@@ -10,6 +10,8 @@ import { Button } from "primereact/button";
 import AddProduct from "./AddProduct";
 import TopContent from "./TopContent";
 import { SplitButton } from "primereact/splitbutton";
+import { prod } from "../data";
+
 
 interface Product {
   jour?: string;
@@ -34,98 +36,12 @@ interface VisibilityProps {
   selectedProduct?: Product;
 }
 
-const produit: Product[] = [
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 1,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 2,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 3,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 4,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 5,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 6,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-];
 
 export default function EditProduct() {
   const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState<Product>({});
-  const [products, setProducts] = useState<Product[]>(produit);
+  const [products, setProducts] = useState<Product[]>(prod);
   const [selectedProduct, setSelectedProduct] = useState<Product>();
   const [ShowProduct, setShowProduct] = useState<Product[]>();
   const items = [

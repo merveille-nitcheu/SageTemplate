@@ -65,7 +65,7 @@ export default function TopContent(props: VisibilityProps) {
     });
   };
 
-  const items: MenuItem[] = [
+  const itemscontent: MenuItem[] = [
     {
       label: "Fonctions",
       icon: "pi pi-cog",
@@ -112,7 +112,7 @@ export default function TopContent(props: VisibilityProps) {
   return (
     <div>
       <Menubar
-        model={items}
+        model={itemscontent}
         style={{
           backgroundColor: "transparent",
           border: "none",
