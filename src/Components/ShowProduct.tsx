@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import LandingPage from "./LandingPage";
 import { useNavigate, useParams } from "react-router-dom";
 import { Toolbar } from "primereact/toolbar";
-import { DataTable, DataTableFilterMeta  } from "primereact/datatable";
+import { DataTable, DataTableFilterMeta } from "primereact/datatable";
 import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
 import { Column } from "primereact/column";
 import { Panel } from "primereact/panel";
@@ -35,104 +35,115 @@ interface VisibilityProps {
   selectedProduct?: Product;
 }
 interface Type {
-    name?: string;
-    code: number | null;
-  }
+  name?: string;
+  code: number | null;
+}
 
-  const type: Type[] = [
-    { name: "Toutes les ecritures", code: null },
-    { name: "Ecritures lettrées", code: 1 },
-    { name: "Ecritures non lettrées", code: 2 },
-  ];
+const type: Type[] = [
+  { name: "Toutes les ecritures", code: null },
+  { name: "Ecritures lettrées", code: 1 },
+  { name: "Ecritures non lettrées", code: 2 },
+];
+const produit: Product[] = [
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 1,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 2,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 3,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 4,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 5,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 6,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+];
+
+const items = [
+  {
+    label: "Voir les registres associés",
+  },
+  {
+    label: "Visualiser la piece",
+  },
+  {
+    label: "Visionner les documents rattachés",
+  },
+];
 
 export default function ShowProduct() {
-
-  const produit: Product[] = [
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 1,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 2,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 3,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 4,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 5,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 6,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-  ];
   const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState<Product>({});
@@ -140,20 +151,6 @@ export default function ShowProduct() {
   const [products, setProducts] = useState<Product[]>(produit);
   const [selectedProduct, setSelectedProduct] = useState<Product>();
   const [ShowProduct, setShowProduct] = useState<Product[]>();
-  const items = [
-    {
-      label: "Voir les registres associés",
-    },
-    {
-      label: "Visualiser la piece",
-    },
-    {
-      label: "Visionner les documents rattachés",
-    },
-
-  ];
-  
-  
 
   useEffect(() => {
     if (params) {
@@ -193,16 +190,15 @@ export default function ShowProduct() {
           style={{ backgroundColor: "#3b82f6", border: "none" }}
         /> */}
 
-<Dropdown
-        value={selectedType}
-        onChange={(e: DropdownChangeEvent) => onGlobalFilterChange(e)}
-        options={type}
-        optionLabel="name"
-        className="buton w-full md:w-14rem"
-        placeholder="Selectionner les ecritures"
-        style={{ marginRight: "20px" }}
-      />
-    
+        <Dropdown
+          value={selectedType}
+          onChange={(e: DropdownChangeEvent) => onGlobalFilterChange(e)}
+          options={type}
+          optionLabel="name"
+          className="buton w-full md:w-14rem"
+          placeholder="Selectionner les ecritures"
+          style={{ marginRight: "20px" }}
+        />
       </div>
     );
   };
@@ -217,13 +213,18 @@ export default function ShowProduct() {
     <LandingPage>
       <Panel header="Saisie de journaux">
         <Fieldset legend={"Journal: " + ShowProduct?.[0]?.reference}>
-          <TopContentShow selectedProduct={selectedProduct}/>
+          <TopContentShow selectedProduct={selectedProduct} />
         </Fieldset>
 
         <Fieldset legend="Liste">
           <Toolbar
-             style={{ padding: "0px", height: "50px" ,background: "transparent",
-             border: "none",marginBottom:'10px'}}
+            style={{
+              padding: "0px",
+              height: "50px",
+              background: "transparent",
+              border: "none",
+              marginBottom: "10px",
+            }}
             left={leftToolbarTemplate}
           />
           <DataTable

@@ -34,94 +34,94 @@ interface VisibilityProps {
   selectedProduct?: Product;
 }
 
-export default function EditProduct() {
+const produit: Product[] = [
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 1,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 2,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 3,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 4,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 5,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 6,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+];
 
-  const produit: Product[] = [
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 1,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 2,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 3,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 4,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 5,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 6,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-  ];
+export default function EditProduct() {
   const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState<Product>({});
@@ -131,7 +131,6 @@ export default function EditProduct() {
   const items = [
     {
       label: "Analytique",
-
     },
     {
       label: "Registre",
@@ -144,21 +143,19 @@ export default function EditProduct() {
     },
     {
       label: "Lettrage",
-      disabled:!!selectedProduct
+      disabled: !!selectedProduct,
     },
     {
       label: "Interrogations genérales",
     },
     {
       label: "Interrogations tiers",
-      disabled:!!selectedProduct
+      disabled: !!selectedProduct,
     },
     {
       label: "Documents attachés",
     },
   ];
-  
-  
 
   useEffect(() => {
     if (params) {
@@ -184,7 +181,7 @@ export default function EditProduct() {
           className="buton p-button-help"
           disabled={!selectedProduct}
           style={{ backgroundColor: "#3b82f6", border: "none" }}
-          onClick = {() => navigate(`/editproduct/${selectedProduct?.type}`)}
+          onClick={() => navigate(`/editproduct/${selectedProduct?.type}`)}
         />
       </div>
     );
@@ -199,8 +196,14 @@ export default function EditProduct() {
   return (
     <LandingPage>
       <Panel header="Saisie de journaux">
-        <Fieldset style={{ paddingBlock: "10px", paddingTop: "25px" ,marginTop:'-20px'}} >
-          <TopContent selectedProduct={selectedProduct}/>
+        <Fieldset
+          style={{
+            paddingBlock: "10px",
+            paddingTop: "25px",
+            marginTop: "-20px",
+          }}
+        >
+          <TopContent selectedProduct={selectedProduct} />
         </Fieldset>
         <Fieldset legend="Ajouter" style={{ marginBlock: "10px" }}>
           <AddProduct
@@ -215,8 +218,12 @@ export default function EditProduct() {
 
         <Fieldset legend="Liste">
           <Toolbar
-            style={{ padding: "0px", height: "50px" ,background: "transparent",
-            border: "none"}}
+            style={{
+              padding: "0px",
+              height: "50px",
+              background: "transparent",
+              border: "none",
+            }}
             left={leftToolbarTemplate}
           />
           <DataTable
@@ -231,7 +238,8 @@ export default function EditProduct() {
               fontSize: "small",
               marginBlock: "-10px",
             }}
-            scrollable scrollHeight="400px"
+            scrollable
+            scrollHeight="400px"
           >
             <Column field="reference" header="Jour"></Column>
             <Column field="reference" header="N°piece"></Column>

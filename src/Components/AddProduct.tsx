@@ -1,11 +1,5 @@
-import React, {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
-import { InputText } from "primereact/inputtext";
+import React, { Dispatch, SetStateAction } from "react";
+
 import { Button } from "primereact/button";
 
 interface VisibilityProps {
