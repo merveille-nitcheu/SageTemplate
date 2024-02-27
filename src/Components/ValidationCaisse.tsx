@@ -39,94 +39,122 @@ interface Type {
   name?: string;
   code: number | null;
 }
+const typeope: Type[] = [
+  { name: "Tous", code: null },
+  { name: "Sortie", code: 1 },
+  { name: "Entrées", code: 2 },
+  { name: "Fond de Caisse", code: 3 },
+  { name: "Transfert de caisse", code: 4 },
+  { name: "Versement bancaire", code: 5 },
+];
+const caisse: Type[] = [{ name: "Tous", code: null }];
+const sortie: Type[] = [{ name: "Tous", code: null }];
+const TypeCaisse: Type[] = [{ name: "Tous", code: null }];
+
+const mvt: Type[] = [
+  { name: "10100000 - Capital", code: null },
+  { name: "10400000 - Primes liées au capital social", code: 1 },
+  { name: "10500000 - Ecart de réévaluation", code: 2 },
+];
+
+const personne: Type[] = [
+  { name: "Atabe", code: 1 },
+  { name: "SIAKAM", code: 2 },
+];
+
+const notif: Type[] = [
+  { name: "Aucun", code: null },
+  { name: "Mail", code: 2 },
+  { name: "Sms", code: 3 },
+];
+const produit: Product[] = [
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 1,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 2,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 3,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 4,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 5,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+  {
+    jour: "Bamboo Watch",
+    piece: "Bamboo Watch",
+    reference: "Bamboo Watch",
+    facture: "Bamboo Watch",
+    type: 6,
+    compte_general: "Bamboo Watch",
+    compte_tiers: "Bamboo Watch",
+    libelle_ecriture: "Bamboo Watch",
+    date_echeance: "Bamboo Watch",
+    position_journal: "Bamboo Watch",
+    debit: "Bamboo Watch",
+    credit: "Bamboo Watch",
+  },
+];
 
 export default function ValidationCaisse() {
-  const produit: Product[] = [
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 1,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 2,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 3,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 4,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 5,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-    {
-      jour: "Bamboo Watch",
-      piece: "Bamboo Watch",
-      reference: "Bamboo Watch",
-      facture: "Bamboo Watch",
-      type: 6,
-      compte_general: "Bamboo Watch",
-      compte_tiers: "Bamboo Watch",
-      libelle_ecriture: "Bamboo Watch",
-      date_echeance: "Bamboo Watch",
-      position_journal: "Bamboo Watch",
-      debit: "Bamboo Watch",
-      credit: "Bamboo Watch",
-    },
-  ];
   const navigate = useNavigate();
   const params = useParams();
   const [selectedTypeCaisse, setSelectedTypeCaisse] = useState<Type | null>(
@@ -143,34 +171,6 @@ export default function ValidationCaisse() {
   const [selectedProduct, setSelectedProduct] = useState<Product>();
   const [ShowProduct, setShowProduct] = useState<Product[]>();
   const [isInputActive, setIsInputActive] = useState(false);
-  const typeope: Type[] = [
-    { name: "Tous", code: null },
-    { name: "Sortie", code: 1 },
-    { name: "Entrées", code: 2 },
-    { name: "Fond de Caisse", code: 3 },
-    { name: "Transfert de caisse", code: 4 },
-    { name: "Versement bancaire", code: 5 },
-  ];
-  const caisse: Type[] = [{ name: "Tous", code: null }];
-  const sortie: Type[] = [{ name: "Tous", code: null }];
-  const TypeCaisse: Type[] = [{ name: "Tous", code: null }];
-
-  const mvt: Type[] = [
-    { name: "10100000 - Capital", code: null },
-    { name: "10400000 - Primes liées au capital social", code: 1 },
-    { name: "10500000 - Ecart de réévaluation", code: 2 },
-  ];
-
-  const personne: Type[] = [
-    { name: "Atabe", code: 1 },
-    { name: "SIAKAM", code: 2 },
-  ];
-
-  const notif: Type[] = [
-    { name: "Aucun", code: null },
-    { name: "Mail", code: 2 },
-    { name: "Sms", code: 3 },
-  ];
 
   useEffect(() => {
     if (params) {
@@ -263,7 +263,11 @@ export default function ValidationCaisse() {
                 optionLabel="name"
               />
             </div>
-            <div className={`field col-6 ${!isInputActive ? "md:col-3 lg:col-3" : " md:col-2 lg:col-2"}`}>
+            <div
+              className={`field col-6 ${
+                !isInputActive ? "md:col-3 lg:col-3" : " md:col-2 lg:col-2"
+              }`}
+            >
               <input
                 type="text"
                 className="input-style text-color p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
@@ -281,7 +285,11 @@ export default function ValidationCaisse() {
                 optionLabel="name"
               />
             </div>
-            <div className={`field col-6 ${!isInputActive ? "md:col-2 lg:col-2" : " md:col-1 lg:col-1"}`}>
+            <div
+              className={`field col-6 ${
+                !isInputActive ? "md:col-2 lg:col-2" : " md:col-1 lg:col-1"
+              }`}
+            >
               <input
                 type="number"
                 min={0}
@@ -300,21 +308,27 @@ export default function ValidationCaisse() {
                 optionLabel="name"
               />
             </div>
-            <div className={`flex col-6 ${!isInputActive ? "md:col-1 lg:col-1" : " md:col-3 lg:col-3"}`}>
-             { isInputActive && (<MultiSelect
-                className={`input-style text-color p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full ${
-                  isInputActive ? "" : "disabled-background"
-                }`}
-                value={selectedPersonne}
-                onChange={(e: MultiSelectChangeEvent) =>
-                  setSelectedPersonne(e.value)
-                }
-                display="chip"
-                placeholder="Adressé à "
-                disabled={!isInputActive}
-                options={personne}
-                optionLabel="name"
-              />)}
+            <div
+              className={`flex col-6 ${
+                !isInputActive ? "md:col-1 lg:col-1" : " md:col-3 lg:col-3"
+              }`}
+            >
+              {isInputActive && (
+                <MultiSelect
+                  className={`input-style text-color p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full ${
+                    isInputActive ? "" : "disabled-background"
+                  }`}
+                  value={selectedPersonne}
+                  onChange={(e: MultiSelectChangeEvent) =>
+                    setSelectedPersonne(e.value)
+                  }
+                  display="chip"
+                  placeholder="Adressé à "
+                  disabled={!isInputActive}
+                  options={personne}
+                  optionLabel="name"
+                />
+              )}
               <Button
                 label="Valider"
                 icon="pi pi-check-square"
