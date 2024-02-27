@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import LandingPage from "./LandingPage";
+import LandingPage from "../Pages/LandingPage";
 import { useNavigate, useParams } from "react-router-dom";
 import { Toolbar } from "primereact/toolbar";
 import { DataTable, DataTableFilterMeta } from "primereact/datatable";
@@ -7,10 +7,10 @@ import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
 import { Column } from "primereact/column";
 import { Panel } from "primereact/panel";
 import { Fieldset } from "primereact/fieldset";
-import { Button } from "primereact/button";
 import { FilterMatchMode } from "primereact/api";
 import { SplitButton } from "primereact/splitbutton";
 import TopContentShow from "./TopContentShow";
+import { prod } from "../data";
 
 interface Product {
   jour?: string;
@@ -44,92 +44,7 @@ const type: Type[] = [
   { name: "Ecritures lettrées", code: 1 },
   { name: "Ecritures non lettrées", code: 2 },
 ];
-const produit: Product[] = [
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 1,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 2,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 3,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 4,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 5,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-  {
-    jour: "Bamboo Watch",
-    piece: "Bamboo Watch",
-    reference: "Bamboo Watch",
-    facture: "Bamboo Watch",
-    type: 6,
-    compte_general: "Bamboo Watch",
-    compte_tiers: "Bamboo Watch",
-    libelle_ecriture: "Bamboo Watch",
-    date_echeance: "Bamboo Watch",
-    position_journal: "Bamboo Watch",
-    debit: "Bamboo Watch",
-    credit: "Bamboo Watch",
-  },
-];
+
 
 const items = [
   {
@@ -148,7 +63,7 @@ export default function ShowProduct() {
   const params = useParams();
   const [product, setProduct] = useState<Product>({});
   const [selectedType, setSelectedType] = useState<Type | null>(null);
-  const [products, setProducts] = useState<Product[]>(produit);
+  const [products, setProducts] = useState<Product[]>(prod);
   const [selectedProduct, setSelectedProduct] = useState<Product>();
   const [ShowProduct, setShowProduct] = useState<Product[]>();
 
@@ -183,12 +98,6 @@ export default function ShowProduct() {
           className="buton"
           style={{ backgroundColor: "#3b82f6" }}
         />
-        {/* <Button
-          label="Ouvrir"
-          className="buton p-button-help"
-          disabled={!selectedProduct}
-          style={{ backgroundColor: "#3b82f6", border: "none" }}
-        /> */}
 
         <Dropdown
           value={selectedType}

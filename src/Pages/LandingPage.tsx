@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import MenuBar from "./MenuBar";
+import MenuBar from "../Components/MenuBar";
 
 interface LayoutProps {
   children: ReactNode;
