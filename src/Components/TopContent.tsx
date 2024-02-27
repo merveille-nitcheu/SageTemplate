@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import { Menubar } from "primereact/menubar";
 import { MenuItem } from "primereact/menuitem";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
+=======
+import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
+>>>>>>> master
 import { Divider } from "primereact/divider";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
+<<<<<<< HEAD
 import { ListBox, ListBoxChangeEvent } from "primereact/listbox";
 import { Producte} from "../data";
 
@@ -54,6 +59,56 @@ export default function TopContent(props: VisibilityProps) {
   };
 
   const itemscontent: MenuItem[] = [
+=======
+import { ListBox, ListBoxChangeEvent } from 'primereact/listbox';
+
+interface Libelle {
+    name: string;
+    code: string;
+}
+interface Product {
+  jour?: string;
+  piece?: string;
+  reference?: string;
+  facture?: string;
+  type?: number;
+  compte_general?: string;
+  compte_tiers?: string;
+  libelle_ecriture?: string;
+  date_echeance?: string;
+  position_journal?: string;
+  debit?: string;
+  credit?: string;
+}
+interface VisibilityProps {
+  selectedProduct?: Product;
+}
+export default function TopContent(props: VisibilityProps) {
+  const navigate = useNavigate();
+  const [selectedLibelle, setSelectedLibelle] = useState<Libelle | null>(null);
+    const libelle: Libelle[] = [
+        { name: 'Acompte/facture', code: 'ACC' },
+        { name: 'Cheque n°', code: 'CHEQ' },
+        { name: 'Facture', code: 'FAC' },
+        { name: 'Reglement facture', code: 'REG' },
+    ];
+
+  const messageLibelle=() =>{
+    return ( <div className="card flex justify-content-center" style={{fontSize:"small"}}>  
+    <ListBox value={selectedLibelle} onChange={(e: ListBoxChangeEvent) => setSelectedLibelle(e.value)} options={libelle} optionLabel="name" className="w-full md:w-14rem" />
+</div>)
+  }
+
+  const Libelle = () => {
+    confirmDialog({
+        message: messageLibelle,
+        header: 'Selection d\'un libellé',
+        defaultFocus: 'accept',
+    });
+};
+
+  const items: MenuItem[] = [
+>>>>>>> master
     {
       label: "Fonctions",
       icon: "pi pi-cog",
@@ -86,7 +141,11 @@ export default function TopContent(props: VisibilityProps) {
     },
     {
       label: "Equilibrer",
+<<<<<<< HEAD
       disabled: !!props.selectedProduct,
+=======
+      disabled:!!props.selectedProduct
+>>>>>>> master
     },
     {
       label: "Imprimer",
@@ -97,10 +156,18 @@ export default function TopContent(props: VisibilityProps) {
     },
   ];
 
+<<<<<<< HEAD
   return (
     <div>
       <Menubar
         model={itemscontent}
+=======
+  
+  return (
+    <div>
+      <Menubar
+        model={items}
+>>>>>>> master
         style={{
           backgroundColor: "transparent",
           border: "none",
@@ -137,6 +204,7 @@ export default function TopContent(props: VisibilityProps) {
 
         <Card style={{ width: "80%", fontSize: "small" }}>
           <div style={{ display: "flex" }}>
+<<<<<<< HEAD
             <span className="span-style">Ancien solde </span>
             <span className="span-style">300 000 </span>
             <span className="span-style">500 000 </span>
@@ -152,6 +220,23 @@ export default function TopContent(props: VisibilityProps) {
             <span className="span-style">Nouveau solde </span>
             <span className="span-style">300 000 </span>
             <span className="span-style">200 000 </span>
+=======
+            <span className = 'span-style'>Ancien solde </span>
+            <span className = 'span-style'>300 000 </span>
+            <span className = 'span-style'>500 000 </span>
+          </div>
+          <Divider layout="horizontal" />
+          <div style={{ display: "flex" }}>
+            <span className = 'span-style'>Totaux journal </span>
+            <span className = 'span-style'>300 000 </span>
+            <span className = 'span-style'>200 000 </span>
+          </div>
+          <Divider layout="horizontal" />
+          <div style={{ display: "flex" }}>
+            <span className = 'span-style'>Nouveau solde </span>
+            <span className = 'span-style'>300 000 </span>
+            <span className = 'span-style'>200 000 </span>
+>>>>>>> master
           </div>
         </Card>
       </div>

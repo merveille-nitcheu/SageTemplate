@@ -49,17 +49,23 @@ code {
   background-color: #3b82f6;
   border: none;
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 10rem !important;
   padding-inline: 8px;
 }
 
 =======
+=======
+>>>>>>> master
   margin-top: 2px;
   width: 100px !important;
   padding-inline: 8px;
   margin-left: 5px;
 }
+<<<<<<< HEAD
 >>>>>>> da56caa (validation caisse)
+=======
+>>>>>>> master
 .class > .p-inputtext {
   font-size: small;
   margin-top: -15px;
@@ -130,6 +136,7 @@ code {
   font-size: small;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .top{
   margin-top: -10px;
 }
@@ -142,6 +149,9 @@ code {
 =======
 /* 768 */
 >>>>>>> da56caa (validation caisse)
+=======
+/* 768 */
+>>>>>>> master
 @media screen and (max-width: 545px) {
   .p-toolbar {
     height: 100px !important;
@@ -209,6 +219,7 @@ code {
   margin-top: 5px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .p-datepicker table td > span{
   font-size: small;
   width: 1rem;
@@ -262,3 +273,5 @@ code {
 }
 =======
 >>>>>>> da56caa (validation caisse)
+=======
+>>>>>>> master

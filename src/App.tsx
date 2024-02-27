@@ -13,7 +13,10 @@ import EditProduct from './Components/EditProduct';
 import Home from './Components/Home';
 import ShowProduct from './Components/ShowProduct';
 import ValidationCaisse from './Components/ValidationCaisse';
+<<<<<<< HEAD
 >>>>>>> da56caa (validation caisse)
+=======
+>>>>>>> master
 
 function App() {
 
