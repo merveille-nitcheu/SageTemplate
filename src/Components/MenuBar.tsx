@@ -1,66 +1,66 @@
-import React from 'react'
-import { Menubar } from 'primereact/menubar';
-import { MenuItem } from 'primereact/menuitem';
-import { useNavigate } from 'react-router-dom';
-
-
+import React from "react";
+import { Menubar } from "primereact/menubar";
+import { MenuItem } from "primereact/menuitem";
+import { useNavigate } from "react-router-dom";
 
 export default function MenuBar() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
-    
-
-    const items: MenuItem[] = [
+  const items: MenuItem[] = [
+    {
+      label: "Fichier",
+      icon: "pi pi-file",
+    },
+    {
+      label: "Edition",
+    },
+    {
+      separator: true,
+    },
+    {
+      label: "Structure",
+    },
+    {
+      label: "Traitement",
+      icon: "pi pi-cog",
+      items: [
         {
-            label: 'Fichier',
-            icon: 'pi pi-file',
-
+          label: "Saisie par piece",
         },
         {
-            label: 'Edition',
-
+          separator: true,
         },
         {
-            separator: true
+          label: "Journaux de saisie",
+          command: () => navigate("/journaux"),
+        },
+      ],
+    },
+    {
+      label: "Etat",
+    },
+    {
+      label: "Fenetre",
+    },
+    {
+      label: "Tresorerie",
+      items: [
+        {
+          label: "Demande de validation",
+          command: () => navigate("/validation_caisse"),
         },
         {
-            label: 'Structure',
-
-        }
-        ,
-        {
-            label: 'Traitement',
-            icon: 'pi pi-cog',
-            items: [
-                {
-                    label: 'Saisie par piece',
-                },
-                {
-                    separator: true
-                },
-                {
-                    label: 'Journaux de saisie',
-                    command: () => navigate('/journaux')
-                },
-
-
-            ]
+          separator: true,
         },
         {
-            label: 'Etat',
-
-
+          label: "Caisse",
         },
-        {
-            label: 'Fenetre',
-
-
-        }
-
-    ];
-    return (
-        <div>
-            <Menubar model={items} className='style-class'/>
-        </div>
-    )
+      ],
+    },
+  ];
+  return (
+    <div>
+      <Menubar model={items} className="style-class" />
+    </div>
+  );
 }
