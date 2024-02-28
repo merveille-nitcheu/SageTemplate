@@ -9,7 +9,7 @@ import { Fieldset } from "primereact/fieldset";
 import { Panel } from "primereact/panel";
 import { Dialog } from "primereact/dialog";
 import { useNavigate } from "react-router-dom";
-import LandingPage from "../Pages/LandingPage";
+import LandingPage from "./LandingPage";
 import { produit,type} from "../data";
 
 
