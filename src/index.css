@@ -49,9 +49,11 @@ code {
   background-color: #3b82f6;
   border: none;
   margin-top: 2px;
-  width: 100px !important;
   padding-inline: 8px;
   margin-left: 5px;
+}
+.adress{
+  width: 145px !important;
 }
 .class > .p-inputtext {
   font-size: small;
