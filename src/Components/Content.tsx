@@ -23,69 +23,70 @@ interface Type {
   name?: string;
   code: number | null;
 }
-const type: Type[] = [
-  { name: "Tous", code: null },
-  { name: "Ouverts", code: 1 },
-  { name: "Non ouverts", code: 2 },
-  { name: "Non imprimés", code: 3 },
-  { name: "Non cloturés totalement", code: 4 },
-  { name: "Imprimés", code: 5 },
-  { name: "Non imprimés et non cloturés totalement", code: 6 },
-  { name: "Cloturés totalement", code: 7 },
-  { name: "Non imprimés et cloturés totalement", code: 8 },
-];
-const produit: Product[] = [
-  {
-    id: "1000",
-    code: "f23h0g3",
-    position: "Saisie Watch",
-    periode: "10/01/2024",
-    description: "Product Description",
-    type: 1,
-  },
-  {
-    id: "1000",
-    code: "f230fh0g3",
-    position: "Bamboo Watch",
-    periode: "10/01/2024",
-    description: "Product Description",
-    type: 2,
-  },
-  {
-    id: "1000",
-    code: "f230fh0g3",
-    position: "Bamboo Watch",
-    periode: "10/01/2024",
-    description: "Product Description",
-    type: 3,
-  },
-  {
-    id: "1000",
-    code: "f230fh0g3",
-    position: "Bamboo Watch",
-    periode: "10/01/2024",
-    description: "Product Description",
-    type: 4,
-  },
-  {
-    id: "1000",
-    code: "f230fh0g3",
-    position: "Bamboo Watch",
-    periode: "10/01/2024",
-    description: "Product Description",
-    type: 5,
-  },
-  {
-    id: "1000",
-    code: "f230fh0g3",
-    position: "Bamboo Watch",
-    periode: "10/01/2024",
-    description: "Product Description",
-    type: 6,
-  },
-];
 
 export default function Content() {
+  const type: Type[] = [
+    { name: "Tous", code: null },
+    { name: "Ouverts", code: 1 },
+    { name: "Non ouverts", code: 2 },
+    { name: "Non imprimés", code: 3 },
+    { name: "Non cloturés totalement", code: 4 },
+    { name: "Imprimés", code: 5 },
+    { name: "Non imprimés et non cloturés totalement", code: 6 },
+    { name: "Cloturés totalement", code: 7 },
+    { name: "Non imprimés et cloturés totalement", code: 8 },
+  ];
+  const produit: Product[] = [
+    {
+      id: "1000",
+      code: "f23h0g3",
+      position: "Saisie Watch",
+      periode: "10/01/2024",
+      description: "Product Description",
+      type: 1,
+    },
+    {
+      id: "1000",
+      code: "f230fh0g3",
+      position: "Bamboo Watch",
+      periode: "10/01/2024",
+      description: "Product Description",
+      type: 2,
+    },
+    {
+      id: "1000",
+      code: "f230fh0g3",
+      position: "Bamboo Watch",
+      periode: "10/01/2024",
+      description: "Product Description",
+      type: 3,
+    },
+    {
+      id: "1000",
+      code: "f230fh0g3",
+      position: "Bamboo Watch",
+      periode: "10/01/2024",
+      description: "Product Description",
+      type: 4,
+    },
+    {
+      id: "1000",
+      code: "f230fh0g3",
+      position: "Bamboo Watch",
+      periode: "10/01/2024",
+      description: "Product Description",
+      type: 5,
+    },
+    {
+      id: "1000",
+      code: "f230fh0g3",
+      position: "Bamboo Watch",
+      periode: "10/01/2024",
+      description: "Product Description",
+      type: 6,
+    },
+  ];
+
   const navigate = useNavigate();
   const [selectedType, setSelectedType] = useState<Type | null>(null);
   const [rowClick, setRowClick] = useState<boolean>(true);

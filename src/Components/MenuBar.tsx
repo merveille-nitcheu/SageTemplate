@@ -54,6 +54,7 @@ export default function MenuBar() {
         },
         {
           label: "Caisse",
+          
         },
       ],
     },

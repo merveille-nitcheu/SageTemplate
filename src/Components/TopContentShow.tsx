@@ -24,73 +24,72 @@ interface Product {
 interface VisibilityProps {
   selectedProduct?: Product;
 }
-
-const items: MenuItem[] = [
-  {
-    label: "Fonctions",
-    icon: "pi pi-cog",
-    items: [
-      {
-        label: "Automatique",
-      },
-      {
-        separator: true,
-      },
-      {
-        label: "Pointer",
-      },
-      {
-        separator: true,
-      },
-      {
-        label: "Annuler",
-      },
-      {
-        separator: true,
-      },
-      {
-        label: "Atteindre",
-      },
-      {
-        separator: true,
-      },
-      {
-        label: "Traitement",
-      },
-      {
-        separator: true,
-      },
-      {
-        label: "Calculer",
-      },
-      {
-        separator: true,
-      },
-      {
-        label: "Imprimer",
-      },
-    ],
-  },
-  {
-    label: "Automatique",
-  },
-  {
-    label: "Pointer",
-  },
-  {
-    label: "Traitement",
-  },
-  {
-    label: "Imprimer",
-    icon: "pi pi-file",
-  },
-  {
-    separator: true,
-  },
-];
 export default function TopContentShow(props: VisibilityProps) {
   const navigate = useNavigate();
 
+  const items: MenuItem[] = [
+    {
+      label: "Fonctions",
+      icon: "pi pi-cog",
+      items: [
+        {
+          label: "Automatique",
+        },
+        {
+          separator: true,
+        },
+        {
+          label: "Pointer",
+        },
+        {
+          separator: true,
+        },
+        {
+          label: "Annuler",
+        },
+        {
+          separator: true,
+        },
+        {
+          label: "Atteindre",
+        },
+        {
+          separator: true,
+        },
+        {
+          label: "Traitement",
+        },
+        {
+          separator: true,
+        },
+        {
+          label: "Calculer",
+        },
+        {
+          separator: true,
+        },
+        {
+          label: "Imprimer",
+        },
+      ],
+    },
+    {
+      label: "Automatique",
+    },
+    {
+        label: "Pointer",
+    },
+    {
+        label: "Traitement",
+    },
+    {
+      label: "Imprimer",
+      icon: "pi pi-file",
+    },
+    {
+      separator: true,
+    },
+  ];
   return (
     <div>
       <Menubar
@@ -131,21 +130,21 @@ export default function TopContentShow(props: VisibilityProps) {
 
         <Card style={{ width: "80%", fontSize: "small" }}>
           <div style={{ display: "flex" }}>
-            <span className="span-style">Solde Lettrage </span>
-            <span className="span-style">300 000 </span>
-            <span className="span-style">500 000 </span>
+            <span className = 'span-style'>Solde Lettrage </span>
+            <span className = 'span-style'>300 000 </span>
+            <span className = 'span-style'>500 000 </span>
           </div>
           <Divider layout="horizontal" />
           <div style={{ display: "flex" }}>
-            <span className="span-style">Totaux</span>
-            <span className="span-style">300 000 </span>
-            <span className="span-style">200 000 </span>
+            <span className = 'span-style'>Totaux</span>
+            <span className = 'span-style'>300 000 </span>
+            <span className = 'span-style'>200 000 </span>
           </div>
           <Divider layout="horizontal" />
           <div style={{ display: "flex" }}>
-            <span className="span-style">Solde Compte</span>
-            <span className="span-style">300 000 </span>
-            <span className="span-style">200 000 </span>
+            <span className = 'span-style'>Solde Compte</span>
+            <span className = 'span-style'>300 000 </span>
+            <span className = 'span-style'>200 000 </span>
           </div>
         </Card>
       </div>
