@@ -48,10 +48,18 @@ code {
   font-size: smaller;
   background-color: #3b82f6;
   border: none;
+<<<<<<< HEAD
   width: 10rem !important;
   padding-inline: 8px;
 }
 
+=======
+  margin-top: 2px;
+  width: 100px !important;
+  padding-inline: 8px;
+  margin-left: 5px;
+}
+>>>>>>> da56caa (validation caisse)
 .class > .p-inputtext {
   font-size: small;
   margin-top: -15px;
@@ -121,6 +129,7 @@ code {
   height: 35px;
   font-size: small;
 }
+<<<<<<< HEAD
 .top{
   margin-top: -10px;
 }
@@ -130,6 +139,9 @@ code {
   width: 100%;
 }
 
+=======
+/* 768 */
+>>>>>>> da56caa (validation caisse)
 @media screen and (max-width: 545px) {
   .p-toolbar {
     height: 100px !important;
@@ -196,6 +208,7 @@ code {
   height: 20px;
   margin-top: 5px;
 }
+<<<<<<< HEAD
 .p-datepicker table td > span{
   font-size: small;
   width: 1rem;
@@ -247,3 +260,5 @@ code {
 .p-tieredmenu.p-tieredmenu-overlay{
   width: 100px;
 }
+=======
+>>>>>>> da56caa (validation caisse)
