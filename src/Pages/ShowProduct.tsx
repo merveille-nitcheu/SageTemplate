@@ -10,33 +10,15 @@ import { Fieldset } from "primereact/fieldset";
 import { FilterMatchMode } from "primereact/api";
 import { SplitButton } from "primereact/splitbutton";
 import TopContentShow from "../Components/TopContentShow";
-import { prod } from "../data";
+import { prod,Producte,Type} from "../data";
 
-interface Product {
-  jour?: string;
-  piece?: string;
-  reference?: string;
-  facture?: string;
-  type?: number;
-  compte_general?: string;
-  compte_tiers?: string;
-  libelle_ecriture?: string;
-  date_echeance?: string;
-  position_journal?: string;
-  debit?: string;
-  credit?: string;
-}
 interface VisibilityProps {
-  setProduct?: Dispatch<SetStateAction<Product>>;
-  product?: Product;
-  products?: Product[];
-  setProducts?: Dispatch<SetStateAction<Product[]>>;
-  setSelectedProduct?: Dispatch<SetStateAction<Product>>;
-  selectedProduct?: Product;
-}
-interface Type {
-  name?: string;
-  code: number | null;
+  setProduct?: Dispatch<SetStateAction<Producte>>;
+  product?: Producte;
+  products?: Producte[];
+  setProducts?: Dispatch<SetStateAction<Producte[]>>;
+  setSelectedProduct?: Dispatch<SetStateAction<Producte>>;
+  selectedProduct?: Producte;
 }
 
 const type: Type[] = [
@@ -44,7 +26,6 @@ const type: Type[] = [
   { name: "Ecritures lettrées", code: 1 },
   { name: "Ecritures non lettrées", code: 2 },
 ];
-
 
 const items = [
   {
@@ -61,11 +42,11 @@ const items = [
 export default function ShowProduct() {
   const navigate = useNavigate();
   const params = useParams();
-  const [product, setProduct] = useState<Product>({});
+  const [product, setProduct] = useState<Producte>({});
   const [selectedType, setSelectedType] = useState<Type | null>(null);
-  const [products, setProducts] = useState<Product[]>(prod);
-  const [selectedProduct, setSelectedProduct] = useState<Product>();
-  const [ShowProduct, setShowProduct] = useState<Product[]>();
+  const [products, setProducts] = useState<Producte[]>(prod);
+  const [selectedProduct, setSelectedProduct] = useState<Producte>();
+  const [ShowProduct, setShowProduct] = useState<Producte[]>();
 
   useEffect(() => {
     if (params) {
