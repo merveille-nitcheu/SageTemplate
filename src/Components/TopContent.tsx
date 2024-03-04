@@ -8,27 +8,15 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { ListBox, ListBoxChangeEvent } from "primereact/listbox";
+import { Producte} from "../data";
 
 interface Libelle {
   name: string;
   code: string;
 }
-interface Product {
-  jour?: string;
-  piece?: string;
-  reference?: string;
-  facture?: string;
-  type?: number;
-  compte_general?: string;
-  compte_tiers?: string;
-  libelle_ecriture?: string;
-  date_echeance?: string;
-  position_journal?: string;
-  debit?: string;
-  credit?: string;
-}
+
 interface VisibilityProps {
-  selectedProduct?: Product;
+  selectedProduct?: Producte;
 }
 const libelle: Libelle[] = [
   { name: "Acompte/facture", code: "ACC" },

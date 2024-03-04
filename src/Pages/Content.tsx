@@ -10,23 +10,9 @@ import { Panel } from "primereact/panel";
 import { Dialog } from "primereact/dialog";
 import { useNavigate } from "react-router-dom";
 import LandingPage from "./LandingPage";
-import { produit,type} from "../data";
+import { produit, type ,Product,Type} from "../data";
 
 
-interface Product {
-  id?: string;
-  code?: string;
-  position?: string;
-  periode?: string;
-  description?: string;
-  type?: number;
-}
-interface Type {
-  name?: string;
-  code: number | null;
-}
-
-  
 
 export default function Content() {
   const navigate = useNavigate();
