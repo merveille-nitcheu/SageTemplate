@@ -65,7 +65,7 @@ export default function TopContent(props: VisibilityProps) {
     });
   };
 
-  const items: MenuItem[] = [
+  const itemscontent: MenuItem[] = [
     {
       label: "Fonctions",
       icon: "pi pi-cog",
@@ -112,7 +112,7 @@ export default function TopContent(props: VisibilityProps) {
   return (
     <div>
       <Menubar
-        model={items}
+        model={itemscontent}
         style={{
           backgroundColor: "transparent",
           border: "none",
@@ -167,7 +167,32 @@ export default function TopContent(props: VisibilityProps) {
           </div>
         </Card>
       </div>
+        <Divider layout="vertical" />
 
+        <Card style={{ width: "80%", fontSize: "small" }}>
+          <div style={{ display: "flex" }}>
+            <span className="span-style">Ancien solde </span>
+            <span className="span-style">300 000 </span>
+            <span className="span-style">500 000 </span>
+          </div>
+          <Divider layout="horizontal" />
+          <div style={{ display: "flex" }}>
+            <span className="span-style">Totaux journal </span>
+            <span className="span-style">300 000 </span>
+            <span className="span-style">200 000 </span>
+          </div>
+          <Divider layout="horizontal" />
+          <div style={{ display: "flex" }}>
+            <span className="span-style">Nouveau solde </span>
+            <span className="span-style">300 000 </span>
+            <span className="span-style">200 000 </span>
+          </div>
+        </Card>
+      </div>
+
+      <ConfirmDialog />
+    </div>
+  );
       <ConfirmDialog />
     </div>
   );

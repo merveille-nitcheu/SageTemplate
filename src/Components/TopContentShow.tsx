@@ -25,7 +25,7 @@ interface VisibilityProps {
   selectedProduct?: Product;
 }
 
-const items: MenuItem[] = [
+const itemsshow: MenuItem[] = [
   {
     label: "Fonctions",
     icon: "pi pi-cog",
@@ -89,12 +89,11 @@ const items: MenuItem[] = [
   },
 ];
 export default function TopContentShow(props: VisibilityProps) {
-  const navigate = useNavigate();
 
   return (
     <div>
       <Menubar
-        model={items}
+        model={itemsshow}
         style={{
           backgroundColor: "transparent",
           border: "none",
