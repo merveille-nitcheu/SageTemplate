@@ -6,11 +6,9 @@ import { useNavigate } from "react-router-dom";
 export default function MenuBar() {
   const navigate = useNavigate();
 
-<<<<<<< HEAD
+
   const itemsmenu: MenuItem[] = [
-=======
-  const items: MenuItem[] = [
->>>>>>> master
+
     {
       label: "Fichier",
       icon: "pi pi-file",
@@ -64,11 +62,9 @@ export default function MenuBar() {
   ];
   return (
     <div>
-<<<<<<< HEAD
+
       <Menubar model={itemsmenu} className="style-class" />
-=======
-      <Menubar model={items} className="style-class" />
->>>>>>> master
+
     </div>
   );
 }

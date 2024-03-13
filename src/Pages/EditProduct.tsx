@@ -10,40 +10,27 @@ import { Button } from "primereact/button";
 import AddProduct from "../Components/AddProduct";
 import TopContent from "../Components/TopContent";
 import { SplitButton } from "primereact/splitbutton";
-import { prod } from "../data";
+
+import { prod,Producte} from "../data";
 
 
-interface Product {
-  jour?: string;
-  piece?: string;
-  reference?: string;
-  facture?: string;
-  type?: number;
-  compte_general?: string;
-  compte_tiers?: string;
-  libelle_ecriture?: string;
-  date_echeance?: string;
-  position_journal?: string;
-  debit?: string;
-  credit?: string;
-}
 interface VisibilityProps {
-  setProduct?: Dispatch<SetStateAction<Product>>;
-  product?: Product;
-  products?: Product[];
-  setProducts?: Dispatch<SetStateAction<Product[]>>;
-  setSelectedProduct?: Dispatch<SetStateAction<Product>>;
-  selectedProduct?: Product;
+  setProduct?: Dispatch<SetStateAction<Producte>>;
+  product?: Producte;
+  products?: Producte[] | undefined;
+  setProducts?: Dispatch<SetStateAction<Producte[]| undefined>>;
+  setSelectedProduct?: Dispatch<SetStateAction<Producte>>;
+  selectedProduct?: Producte;
 }
-
 
 export default function EditProduct() {
   const navigate = useNavigate();
   const params = useParams();
-  const [product, setProduct] = useState<Product>({});
-  const [products, setProducts] = useState<Product[]>(prod);
-  const [selectedProduct, setSelectedProduct] = useState<Product>();
-  const [ShowProduct, setShowProduct] = useState<Product[]>();
+  const [product, setProduct] = useState<Producte>({});
+  const [products, setProducts] = useState<Producte[] | undefined>();
+  const [selectedProduct, setSelectedProduct] = useState<Producte>();
+  const [ShowProduct, setShowProduct] = useState<Producte[]>();
+
   const items = [
     {
       label: "Analytique",
@@ -75,7 +62,9 @@ export default function EditProduct() {
 
   useEffect(() => {
     if (params) {
-      let _product = products.filter((val) => val.type === params.type);
+
+      const _product = products?.filter((val) => val.type === params.type);
+
       setShowProduct(_product);
     }
   }, [products]);
@@ -90,24 +79,29 @@ export default function EditProduct() {
           size="small"
           className="buton"
           disabled={!selectedProduct}
-          style={{ backgroundColor: "#3b82f6" }}
+
+          style={{ backgroundColor: "#3b82f6",marginLeft:'0px' }}
+
         />
         <Button
           label="Ouvrir"
           className="buton p-button-help"
           disabled={!selectedProduct}
-          style={{ backgroundColor: "#3b82f6", border: "none" }}
+
+          style={{ backgroundColor: "#3b82f6", border: "none" ,marginLeft:'0px'}}
+
           onClick={() => navigate(`/editproduct/${selectedProduct?.type}`)}
         />
       </div>
     );
   };
 
-  /* const onRowSelect = (event: any) => {
-    const selectedProduct = event.data;
 
-    navigate(`/editproduct/${selectedProduct.type}`);
-  }; */
+  const onRowSelect = (event: any) => {
+    const selectedProduct = event.data;
+    setProduct(selectedProduct);
+  };
+
 
   return (
     <LandingPage>
@@ -149,6 +143,9 @@ export default function EditProduct() {
             onSelectionChange={(e) => setSelectedProduct(e.value)}
             paginator
             rows={5}
+
+            onRowSelect={onRowSelect}
+
             tableStyle={{
               minWidth: "50rem",
               fontSize: "small",
