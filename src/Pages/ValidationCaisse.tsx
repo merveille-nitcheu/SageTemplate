@@ -1,4 +1,6 @@
+
 import React, { useEffect, useState } from "react";
+
 import LandingPage from "./LandingPage";
 import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
 import { DataTable } from "primereact/datatable";
@@ -10,19 +12,17 @@ import { Calendar } from "primereact/calendar";
 import { MultiSelect, MultiSelectChangeEvent } from "primereact/multiselect";
 import { Nullable } from "primereact/ts-helpers";
 import { typeope, notif, caisse, sortie, personne, typeCaisse } from "../data";
+
 import { NumericFormat } from "react-number-format";
 import { SplitButton } from 'primereact/splitbutton';
 import { MenuItem,MenuItemCommandEvent} from 'primereact/menuitem';
 import {Type,Caisse} from "../data";
 
-
-
-
-
 export default function ValidationCaisse() {
   const [selectedTypeCaisse, setSelectedTypeCaisse] = useState<Type | null>(
     null
   );
+
   const [selectedCaisse, setSelectedCaisse] = useState<Type | null | undefined>(
     null
   );
@@ -46,6 +46,7 @@ export default function ValidationCaisse() {
     "en attente"
   );
   const [selectedMontant, setSelectedMontant] = useState<string | undefined>(
+
     undefined
   );
   const [products, setProducts] = useState<Caisse[]>([]);
@@ -70,6 +71,7 @@ export default function ValidationCaisse() {
     e.preventDefault();
 
     if (Caisse) {
+
       const productToUpdate = products.find(
         (product) => product.libelle === Caisse.libelle
       );
@@ -97,6 +99,7 @@ export default function ValidationCaisse() {
         setProducts(updatedProducts);
       }
     } else {
+
       let i = 1;
       const newCaisse: Caisse = {
         numero: i + 1,
@@ -108,7 +111,9 @@ export default function ValidationCaisse() {
         notif: selectedNotif?.name,
         profil: selectedPersonne?.map((item) => item.name).join(", "),
         type: selectedSortie?.name,
+
         status:status,
+
       };
 
       setProducts((prevData) => [...prevData, newCaisse]);
@@ -116,7 +121,9 @@ export default function ValidationCaisse() {
 
     setSelectedCaisse(null);
     setSelectedLibelle("");
+
     setSelectedMontant("");
+
     setSelectedNotif(null);
     setSelectedPersonne(null);
     setSelectedSortie(null);
@@ -126,6 +133,7 @@ export default function ValidationCaisse() {
   const actionBodyTemplate = (rowData: Caisse) => {
     return (
       <React.Fragment>
+
         <Button
           icon="pi pi-trash"
           rounded
@@ -178,6 +186,7 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
     </React.Fragment>
   );
 };
+
 
   const deleteSelectedProducts = (caisse: Caisse) => {
     let _products = products.filter((val) => val.libelle !== caisse.libelle);
@@ -235,7 +244,9 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
               />
             </div>
             <div className="field col-6 md:col-3 lg:col-3">
+
               <label>Type de demande</label>
+
               <Dropdown
                 className="input-style class text-color  p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                 placeholder={typeope[0].name}
@@ -245,7 +256,9 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
                 optionLabel="name"
               />
             </div>
+
             <div className="field col-6 md:col-3 lg:col-3">
+
               <label>Periode</label>
               <Calendar
                 value={dates}
@@ -256,7 +269,9 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
                 placeholder={formattedDate}
               />
             </div>
+
             <div className="field col-6 md:col-3 lg:col-3 mt-3">
+
               <Button label="Rechercher" className="buton-input w-full" />
             </div>
           </div>
@@ -280,7 +295,9 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
 
             <div className="field col-6 md:col-2 lg:col-2">
               <Dropdown
+
                 className="input-style text-color px-2  border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+
                 placeholder="Caisse"
                 value={selectedCaisse}
                 onChange={(e) => setSelectedCaisse(e.value)}
@@ -290,7 +307,9 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
             </div>
             <div
               className={`field col-6 ${
+
                 isInputActive ? "md:col-2 lg:col-2" : "md:col-3 lg:col-3"
+
               }`}
             >
               <input
@@ -301,6 +320,7 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
                 onChange={(e) => setSelectedLibelle(e.target.value)}
               />
             </div>
+
 
             <div className={"field col-6 md:col-2 lg:col-2"}>
               <NumericFormat
@@ -313,12 +333,15 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
                 onValueChange={({ value }: { value: string }) =>
                   setSelectedMontant(value !== "" ? value : undefined)
                 }
+
               />
             </div>
             <div className="field col-6 md:col-2 lg:col-2">
               <Dropdown
                 editable
+
                 className="input-style text-color p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+
                 placeholder={notif[0].name}
                 value={selectedNotif}
                 onChange={handleNotifChange}
@@ -327,15 +350,19 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
               />
             </div>
 
+
             <div
               className={`flex col-6 ${
                 isInputActive ? "md:col-3 lg:col-3" : "md:col-2 lg:col-2"
+
               }`}
             >
               {isInputActive && (
                 <MultiSelect
+
                   className={`input-style text-color p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full ${
                     isInputActive ? "mr-3" : "mr-0 disabled-background"
+
                   }`}
                   value={selectedPersonne}
                   /* value={(selectedPersonne && selectedPersonne.length > 0) ? selectedPersonne : (Caisse?.profil ? [Caisse.profil] : [])} */
@@ -350,7 +377,9 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
                 />
               )}
               <Button
+
                 label="Valider"
+
                 className="buton-check mt-1 w-full border-1 border-solid surface-border border-round"
               />
             </div>
@@ -360,7 +389,9 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
             selectionMode="single"
             selection={Caisse!}
             onSelectionChange={(e) => setCaisse(e.value)}
+
             paginator={products.length > 5}
+
             rows={5}
             onRowSelect={onRowSelect}
             tableStyle={{
@@ -371,17 +402,21 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
             scrollable
             scrollHeight="400px"
           >
+
             <Column
               field="date"
               header="Date"
               body={(rowData) =>
                 rowData.date ? rowData.date.toLocaleDateString() : ""
               }
+
               style={{ width: "10%" }}
+
             />
             <Column
               field="libelle"
               header="Libelle"
+
               style={{ width: "25%" }}
             ></Column>
             <Column
@@ -407,6 +442,7 @@ const statusBodyTemplate = (rowData: Caisse, index: any) => {
               style={{ width: "15%",paddingLeft:"0px"}}
               body={statusBodyTemplate}
             ></Column>
+
             <Column
               body={actionBodyTemplate}
               exportable={false}

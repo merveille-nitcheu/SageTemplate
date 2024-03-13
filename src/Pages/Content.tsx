@@ -10,9 +10,8 @@ import { Panel } from "primereact/panel";
 import { Dialog } from "primereact/dialog";
 import { useNavigate } from "react-router-dom";
 import LandingPage from "./LandingPage";
+
 import { produit, type ,Product,Type} from "../data";
-
-
 
 export default function Content() {
   const navigate = useNavigate();
@@ -85,14 +84,18 @@ export default function Content() {
     );
   };
   const deleteProduct = (product: Product) => {
+
     const _products = products.filter((val) => val.type !== product.type);
+
     setProducts(_products);
     setDeleteProductDialog(false);
     setProduct({});
   };
 
   const deleteSelectedProducts = () => {
+
     const _products = products.filter((val) => !selectedProducts.includes(val));
+
     setProducts(_products);
     setDeleteProductsDialog(false);
     setSelectedProducts([]);

@@ -48,9 +48,14 @@ code {
   font-size: smaller;
   background-color: #3b82f6;
   border: none;
+
   width: 10rem !important;
+
+
+
   padding-inline: 8px;
 }
+
 
 .class > .p-inputtext {
   font-size: small;
@@ -129,6 +134,7 @@ code {
 
   width: 100%;
 }
+
 
 @media screen and (max-width: 545px) {
   .p-toolbar {

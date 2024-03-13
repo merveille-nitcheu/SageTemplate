@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+
 import Content  from './Pages/Content';
 import EditProduct from './Pages/EditProduct';
 import Home from './Pages/Home';
 import ShowProduct from './Pages/ShowProduct';
 import ValidationCaisse from './Pages/ValidationCaisse';
+
 
 function App() {
 

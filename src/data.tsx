@@ -1,4 +1,5 @@
 export interface Type {
+
   name?: string;
   code: number | null;
 }
@@ -224,3 +225,4 @@ export const prod: Producte[] = [
     credit: "Bamboo Watch",
   },
 ];
+

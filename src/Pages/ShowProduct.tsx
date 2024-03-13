@@ -10,6 +10,7 @@ import { Fieldset } from "primereact/fieldset";
 import { FilterMatchMode } from "primereact/api";
 import { SplitButton } from "primereact/splitbutton";
 import TopContentShow from "../Components/TopContentShow";
+
 import { prod,Producte,Type} from "../data";
 
 interface VisibilityProps {
@@ -19,6 +20,7 @@ interface VisibilityProps {
   setProducts?: Dispatch<SetStateAction<Producte[]>>;
   setSelectedProduct?: Dispatch<SetStateAction<Producte>>;
   selectedProduct?: Producte;
+
 }
 
 const type: Type[] = [
@@ -26,6 +28,7 @@ const type: Type[] = [
   { name: "Ecritures lettrées", code: 1 },
   { name: "Ecritures non lettrées", code: 2 },
 ];
+
 
 const items = [
   {
@@ -48,9 +51,10 @@ export default function ShowProduct() {
   const [selectedProduct, setSelectedProduct] = useState<Producte>();
   const [ShowProduct, setShowProduct] = useState<Producte[]>();
 
+
   useEffect(() => {
     if (params) {
-      let _product = products.filter((val) => val.type === params.type);
+      const _product = products.filter((val) => val.type === params.type);
       setShowProduct(_product);
     }
   }, [products]);

@@ -10,6 +10,7 @@ import { Button } from "primereact/button";
 import AddProduct from "../Components/AddProduct";
 import TopContent from "../Components/TopContent";
 import { SplitButton } from "primereact/splitbutton";
+
 import { prod,Producte} from "../data";
 
 
@@ -29,6 +30,7 @@ export default function EditProduct() {
   const [products, setProducts] = useState<Producte[] | undefined>();
   const [selectedProduct, setSelectedProduct] = useState<Producte>();
   const [ShowProduct, setShowProduct] = useState<Producte[]>();
+
   const items = [
     {
       label: "Analytique",
@@ -60,7 +62,9 @@ export default function EditProduct() {
 
   useEffect(() => {
     if (params) {
-      let _product = products?.filter((val) => val.type === params.type);
+
+      const _product = products?.filter((val) => val.type === params.type);
+
       setShowProduct(_product);
     }
   }, [products]);
@@ -75,23 +79,29 @@ export default function EditProduct() {
           size="small"
           className="buton"
           disabled={!selectedProduct}
+
           style={{ backgroundColor: "#3b82f6",marginLeft:'0px' }}
+
         />
         <Button
           label="Ouvrir"
           className="buton p-button-help"
           disabled={!selectedProduct}
+
           style={{ backgroundColor: "#3b82f6", border: "none" ,marginLeft:'0px'}}
+
           onClick={() => navigate(`/editproduct/${selectedProduct?.type}`)}
         />
       </div>
     );
   };
 
+
   const onRowSelect = (event: any) => {
     const selectedProduct = event.data;
     setProduct(selectedProduct);
   };
+
 
   return (
     <LandingPage>
@@ -133,7 +143,9 @@ export default function EditProduct() {
             onSelectionChange={(e) => setSelectedProduct(e.value)}
             paginator
             rows={5}
+
             onRowSelect={onRowSelect}
+
             tableStyle={{
               minWidth: "50rem",
               fontSize: "small",
