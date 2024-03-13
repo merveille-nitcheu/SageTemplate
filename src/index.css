@@ -166,6 +166,7 @@ code {
 }
 .p-dropdown .p-dropdown-trigger {
   width: 10px;
+  margin-right: 15px;
 }
 
 .p-multiselect .p-multiselect-trigger {

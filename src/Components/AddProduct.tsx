@@ -6,8 +6,8 @@ import { Button } from "primereact/button";
 interface VisibilityProps {
   setProduct?: Dispatch<SetStateAction<Producte>>;
   product?: Producte;
-  products?: Producte[];
-  setProducts?: Dispatch<SetStateAction<Producte[]>>;
+  products?: Producte[] | undefined;
+  setProducts?: Dispatch<SetStateAction<Producte[] | undefined>>;
   setSelectedProduct?: Dispatch<SetStateAction<Producte | undefined>>;
   selectedProduct?: Producte;
 }
@@ -79,7 +79,7 @@ export default function AddProduct(props: VisibilityProps) {
       };
 
       if (props.setProducts) {
-        props.setProducts((prevData) => [...prevData, newProduct]);
+        props.setProducts((prevData) => [...prevData?? [], newProduct]);
       }
     }
 

@@ -16,8 +16,8 @@ import { prod,Producte} from "../data";
 interface VisibilityProps {
   setProduct?: Dispatch<SetStateAction<Producte>>;
   product?: Producte;
-  products?: Producte[];
-  setProducts?: Dispatch<SetStateAction<Producte[]>>;
+  products?: Producte[] | undefined;
+  setProducts?: Dispatch<SetStateAction<Producte[]| undefined>>;
   setSelectedProduct?: Dispatch<SetStateAction<Producte>>;
   selectedProduct?: Producte;
 }
@@ -26,7 +26,7 @@ export default function EditProduct() {
   const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState<Producte>({});
-  const [products, setProducts] = useState<Producte[]>(prod);
+  const [products, setProducts] = useState<Producte[] | undefined>();
   const [selectedProduct, setSelectedProduct] = useState<Producte>();
   const [ShowProduct, setShowProduct] = useState<Producte[]>();
   const items = [
@@ -60,7 +60,7 @@ export default function EditProduct() {
 
   useEffect(() => {
     if (params) {
-      let _product = products.filter((val) => val.type === params.type);
+      let _product = products?.filter((val) => val.type === params.type);
       setShowProduct(_product);
     }
   }, [products]);
@@ -75,13 +75,13 @@ export default function EditProduct() {
           size="small"
           className="buton"
           disabled={!selectedProduct}
-          style={{ backgroundColor: "#3b82f6" }}
+          style={{ backgroundColor: "#3b82f6",marginLeft:'0px' }}
         />
         <Button
           label="Ouvrir"
           className="buton p-button-help"
           disabled={!selectedProduct}
-          style={{ backgroundColor: "#3b82f6", border: "none" }}
+          style={{ backgroundColor: "#3b82f6", border: "none" ,marginLeft:'0px'}}
           onClick={() => navigate(`/editproduct/${selectedProduct?.type}`)}
         />
       </div>
